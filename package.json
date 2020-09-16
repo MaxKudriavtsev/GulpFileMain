@@ -1,0 +1,25 @@
+{
+  "name": "main-gulp",
+  "version": "1.0.0",
+  "description": "Main gulp",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.12",
+    "del": "^5.1.0",
+    "gulp": "^4.0.2",
+    "gulp-file-include": "^2.2.2",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-ttf2woff": "^1.1.1",
+    "gulp-ttf2woff2": "^3.0.0",
+    "gulp-webp": "^4.0.1",
+    "gulp-webp-css": "^1.1.0",
+    "gulp-webp-html": "^1.0.2"
+  },
+  "dependencies": {
+    "webp-converter": "^2.3.0"
+  }
+}

@@ -16,7 +16,7 @@ let path = {
       "!" + source_folder + "/_*.html",
     ],
     css: source_folder + "/scss/style.scss",
-    js: source_folder + "/js/script.js",
+    js: source_folder + "/js/*.js",
     img: source_folder + "/img/**/*.{jpg,png,svg,webp,gif.ico}",
     fonts: source_folder + "/fonts/*.ttf",
   },
@@ -68,7 +68,9 @@ function css() {
 }
 
 function js() {
-  return src(path.src.js)
+  return src([path.src.js,
+  'node_modules/slick-carousel/slick/slick.js',
+  'node_modules/magnific-popup/dist/jquery.magnific-popup.js'])
     .pipe(fileinclude())
     .pipe(dest(path.build.js))
     .pipe(browsersync.stream());

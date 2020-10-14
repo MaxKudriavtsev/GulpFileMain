@@ -37,7 +37,8 @@ let { src, dest } = require("gulp"),
   scss = require("gulp-sass"),
   imagemin = require("gulp-imagemin"),
   ttf2woff = require("gulp-ttf2woff"),
-  ttf2woff2 = require("gulp-ttf2woff2");
+  ttf2woff2 = require("gulp-ttf2woff2"),
+  uglify = require("gulp-uglify");
 
 function browserSync(params) {
   browsersync.init({
@@ -72,6 +73,7 @@ function js() {
   'node_modules/slick-carousel/slick/slick.js',
   'node_modules/magnific-popup/dist/jquery.magnific-popup.js'])
     .pipe(fileinclude())
+    .pipe(uglify())
     .pipe(dest(path.build.js))
     .pipe(browsersync.stream());
 }

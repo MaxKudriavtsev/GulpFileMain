@@ -15,6 +15,7 @@
     "gulp-sass": "^4.1.0",
     "gulp-ttf2woff": "^1.1.1",
     "gulp-ttf2woff2": "^3.0.0",
+    "gulp-uglify": "^3.0.2",
     "magnific-popup": "^1.1.0",
     "slick-carousel": "^1.8.1"
   }

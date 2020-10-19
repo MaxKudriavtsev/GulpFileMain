@@ -94,10 +94,16 @@ function images() {
 }
 
 function fonts(params) {
-  src(path.src.fonts).pipe(ttf2woff()).pipe(dest(path.build.fonts));
+  src(path.src.fonts).pipe(ttf2woff())
+  .pipe(dest(path.build.fonts));
   return src(path.src.fonts)
     .pipe(ttf2woff2())
     .pipe(dest(path.build.fonts));
+}
+
+function woff(params){
+  return src(source_folder + "/fonts/*.{woff,woff2}")
+  .pipe(dest(project_folder + "/fonts/"));
 }
 
 function fontsStyle(params) {
@@ -145,7 +151,7 @@ function clean(params) {
 
 let build = gulp.series(
   clean,
-  gulp.parallel(js, css, html, images, fonts),
+  gulp.parallel(js, css, html, images, fonts, woff),
   fontsStyle
 );
 let watch = gulp.parallel(watchFiles, build, browserSync);

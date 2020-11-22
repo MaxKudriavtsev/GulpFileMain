@@ -9,6 +9,7 @@
   "devDependencies": {
     "browser-sync": "^2.26.12",
     "del": "^5.1.0",
+    "fullpage.js": "^3.0.9",
     "gulp": "^4.0.2",
     "gulp-file-include": "^2.2.2",
     "gulp-imagemin": "^7.1.0",

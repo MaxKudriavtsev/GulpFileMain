@@ -58,7 +58,11 @@ function html() {
 }
 
 function css() {
-  return src(path.src.css)
+  return src([path.src.css,
+    'node_modules/slick-carousel/slick/slick.css',
+      // 'node_modules/magnific-popup/dist/magnific-popup.css'
+
+  ])
     .pipe(
       scss({
         outputStyle: "expanded",
@@ -71,7 +75,8 @@ function css() {
 function js() {
   return src([path.src.js,
   'node_modules/slick-carousel/slick/slick.js',
-  'node_modules/magnific-popup/dist/jquery.magnific-popup.js'])
+  // 'node_modules/magnific-popup/dist/jquery.magnific-popup.min.js'
+])
     .pipe(fileinclude())
     .pipe(uglify())
     .pipe(dest(path.build.js))

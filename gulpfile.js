@@ -1,7 +1,6 @@
 let project_folder = require("path").basename(__dirname);
 let source_folder = "#src";
 let fs = require("fs");
-
 let path = {
   build: {
     html: project_folder + "/",
@@ -38,7 +37,12 @@ let { src, dest } = require("gulp"),
   imagemin = require("gulp-imagemin"),
   ttf2woff = require("gulp-ttf2woff"),
   ttf2woff2 = require("gulp-ttf2woff2"),
-  uglify = require("gulp-uglify");
+  uglify = require("gulp-uglify"),
+  autoprefixer = require("gulp-autoprefixer"),
+  cssbeautify = require("gulp-cssbeautify"),
+  remove = require("gulp-strip-css-comments"),
+  cssnano = require("gulp-cssnano"),
+  rename = require("gulp-rename");
 
 function browserSync(params) {
   browsersync.init({
@@ -59,7 +63,8 @@ function html() {
 
 function css() {
   return src([path.src.css,
-    'node_modules/slick-carousel/slick/slick.css',
+    // 'node_modules/slick-carousel/slick/slick.css',
+    // 'node_modules/fullpage.js/dist/fullpage.css'
       // 'node_modules/magnific-popup/dist/magnific-popup.css'
 
   ])
@@ -68,13 +73,30 @@ function css() {
         outputStyle: "expanded",
       })
     )
+    .pipe(autoprefixer({
+      cascade: true
+    }))
+    .pipe(cssbeautify())
+    .pipe(dest(path.build.css))
+    .pipe(cssnano({
+      zindex: false,
+      discardComments: {
+        removeAll: true
+      }
+    }))
+    .pipe(remove())
+    .pipe(rename({
+      suffix:".min",
+      extname:".css"
+    }))
     .pipe(dest(path.build.css))
     .pipe(browsersync.stream());
 }
 
 function js() {
   return src([path.src.js,
-  'node_modules/slick-carousel/slick/slick.js',
+  // 'node_modules/slick-carousel/slick/slick.js',
+  // 'node_modules/fullpage.js/dist/fullpage.js'
   // 'node_modules/magnific-popup/dist/jquery.magnific-popup.min.js'
 ])
     .pipe(fileinclude())
@@ -111,7 +133,7 @@ function woff(params){
   .pipe(dest(project_folder + "/fonts/"));
 }
 
-function fontsStyle(params) {
+async function fontsStyle(params) {
   let file_content = fs.readFileSync(
     source_folder + "/scss/fonts.scss"
   );
@@ -154,13 +176,10 @@ function clean(params) {
   return del(path.clean);
 }
 
-let build = gulp.series(
-  clean,
-  gulp.parallel(js, css, html, images, fonts, woff),
-  fontsStyle
-);
+let build = gulp.series(clean, gulp.parallel(js, css, html, images, fonts, woff),fontsStyle);
 let watch = gulp.parallel(watchFiles, build, browserSync);
 
+exports.clean = clean;
 exports.fontsStyle = fontsStyle;
 exports.fonts = fonts;
 exports.images = images;

@@ -1,81 +1,115 @@
+@font-face {
+    font-family: "BravoRGRegular";
+    font-display: swap;
+    src: url("../fonts/BravoRGRegular.woff") format("woff"), url("../fonts/BravoRGRegular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "ceremonious_one";
+  font-display: swap;
+  src: url("../fonts/ceremonious_one.woff") format("woff"), url("../fonts/ceremonious_one.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+    font-family: "pfdintextcondpro-regular";
+  font-display: swap;
+  src: url("../fonts/pfdintextcondpro-regular.woff") format("woff"), url("../fonts/pfdintextcondpro-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+    font-family: "pfdintextcondpro-medium";
+  font-display: swap;
+  src: url("../fonts/pfdintextcondpro-medium.woff") format("woff"), url("../fonts/pfdintextcondpro-medium.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
 * {
-  padding: 0;
-  margin: 0;
-  border: 0;
-  box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
 }
 
 *,
 *:before,
 *:after {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 :focus,
 :active {
-  outline: none;
+    outline: none;
 }
 
 a:focus,
 a:active {
-  outline: none;
+    outline: none;
 }
 
 nav,
 footer,
 header,
 aside {
-  display: block;
+    display: block;
 }
 
 html,
 body {
-  height: 100%;
-  width: 100%;
-  font-size: 100%;
-  line-height: 1;
-  font-size: 14px;
-  -ms-text-size-adjust: 100%;
-  -moz-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
+    height: 100%;
+    width: 100%;
+    font-size: 100%;
+    line-height: 1;
+    font-size: 14px;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
 }
 
 input,
 button,
 textarea {
-  font-family: inherit;
+    font-family: inherit;
 }
 
 input::-ms-clear {
-  display: none;
+    display: none;
 }
 
 button {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 button::-moz-focus-inner {
-  padding: 0;
-  border: 0;
+    padding: 0;
+    border: 0;
 }
 
 a,
 a:visited {
-  text-decoration: none;
+    text-decoration: none;
+}
+
+a {
+    color: inherit;
 }
 
 a:hover {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 ul li {
-  list-style: none;
+    list-style: none;
 }
 
 img {
-  vertical-align: top;
+    vertical-align: top;
 }
 
 h1,
@@ -84,111 +118,6 @@ h3,
 h4,
 h5,
 h6 {
-  font-size: inherit;
-  font-weight: 400;
-}
-
-/* Slider */
-.slick-slider {
-  position: relative;
-  display: block;
-  box-sizing: border-box;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  -ms-touch-action: pan-y;
-  touch-action: pan-y;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.slick-list {
-  position: relative;
-  overflow: hidden;
-  display: block;
-  margin: 0;
-  padding: 0;
-}
-
-.slick-list:focus {
-  outline: none;
-}
-
-.slick-list.dragging {
-  cursor: pointer;
-  cursor: hand;
-}
-
-.slick-slider .slick-track,
-.slick-slider .slick-list {
-  -webkit-transform: translate3d(0, 0, 0);
-  -moz-transform: translate3d(0, 0, 0);
-  -ms-transform: translate3d(0, 0, 0);
-  -o-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-}
-
-.slick-track {
-  position: relative;
-  left: 0;
-  top: 0;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.slick-track:before, .slick-track:after {
-  content: "";
-  display: table;
-}
-
-.slick-track:after {
-  clear: both;
-}
-
-.slick-loading .slick-track {
-  visibility: hidden;
-}
-
-.slick-slide {
-  float: left;
-  height: 100%;
-  min-height: 1px;
-  display: none;
-}
-
-[dir="rtl"] .slick-slide {
-  float: right;
-}
-
-.slick-slide img {
-  display: block;
-}
-
-.slick-slide.slick-loading img {
-  display: none;
-}
-
-.slick-slide.dragging img {
-  pointer-events: none;
-}
-
-.slick-initialized .slick-slide {
-  display: block;
-}
-
-.slick-loading .slick-slide {
-  visibility: hidden;
-}
-
-.slick-vertical .slick-slide {
-  display: block;
-  height: auto;
-  border: 1px solid transparent;
-}
-
-.slick-arrow.slick-hidden {
-  display: none;
+    font-size: inherit;
+    font-weight: 400;
 }

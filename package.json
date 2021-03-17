@@ -24,5 +24,11 @@
     "gulp-uglify": "^3.0.2",
     "magnific-popup": "^1.1.0",
     "slick-carousel": "^1.8.1"
+  },
+  "dependencies": {
+    "js-yaml": "^3.13.1"
+  },
+  "resolutions": {
+    "js-yaml": "^3.13.1"
   }
 }

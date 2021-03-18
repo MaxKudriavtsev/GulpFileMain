@@ -39,7 +39,6 @@ let { src, dest } = require("gulp"),
   ttf2woff2 = require("gulp-ttf2woff2"),
   uglify = require("gulp-uglify"),
   autoprefixer = require("gulp-autoprefixer"),
-  cssbeautify = require("gulp-cssbeautify"),
   remove = require("gulp-strip-css-comments"),
   cssnano = require("gulp-cssnano"),
   rename = require("gulp-rename");
@@ -76,7 +75,6 @@ function css() {
     .pipe(autoprefixer({
       cascade: true
     }))
-    .pipe(cssbeautify())
     .pipe(dest(path.build.css))
     .pipe(cssnano({
       zindex: false,
